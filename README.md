@@ -1,56 +1,63 @@
-# Welcome to your Expo app 👋
+# Voter App Prototype
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Mobile-first Expo implementation of the voter-assistance UI plan in [`../docs`](../docs/). The current vertical slice runs on iOS, Android, and web with bilingual onboarding, local profile persistence, election/candidate flows, local native reminders, and responsive navigation.
 
-## Get started
+## Run locally
 
-1. Install dependencies
-
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+Requirements: Node.js LTS and npm.
 
 ```bash
-npm run reset-project
+npm install
+npm run web
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+For native development:
 
-### Other setup steps
+```bash
+npm run android
+npm run ios
+```
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+Run static checks and create a web export:
 
-## Learn more
+```bash
+npm run check
+npx expo export --platform web
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+## Implemented slice
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- Required English/Spanish onboarding.
+- Prototype-only Texas address form and synthetic district resolution.
+- Native secure profile persistence; browser prototype persistence uses local storage.
+- Home, My Elections, Explore, Settings, notifications, election detail, candidate detail, and address-change routes.
+- Neutral candidate cards, source metadata, data-status components, responsive bottom/side navigation, and accessible form/control semantics.
+- Native local-notification permission and three fixture reminders. Web intentionally uses only the in-app notification center.
+- Local profile and reminder deletion.
 
-## Join the community
+## Prototype safety boundaries
 
-Join our community of developers creating universal apps.
+This build does **not** resolve real voting jurisdictions or provide a verified ballot. Candidate names, districts, ballot order, and some metadata are synthetic and are labeled throughout the UI. Do not enter a real address when demonstrating the browser build.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Production work remains blocked on the decisions in [`../docs/pre-implementation-decisions.md`](../docs/pre-implementation-decisions.md), especially:
+
+- address/jurisdiction provider and privacy review;
+- field-level Texas source matrix and completeness contract;
+- freshness/conflict policy and operational ownership;
+- approved English/Spanish election copy;
+- accessibility device matrix and manual verification;
+- production web storage and notification policy.
+
+`npm audit --omit=dev` currently reports transitive `image-size` and `uuid` advisories through Expo/Metro tooling. Its automated forced fix proposes a breaking Expo downgrade, so `npm audit fix --force` must not be used. Track `SEC-01` and adopt an SDK-compatible upstream fix before pilot distribution.
+
+## Source layout
+
+```text
+src/app/          Expo Router screens
+src/components/   Shared accessible UI primitives
+src/context/      Profile, locale, and hydration state
+src/data/         Synthetic normalized election fixtures
+src/i18n/         English and Spanish prototype copy
+src/services/     Local profile and notification adapters
+src/types/        UI-facing domain contracts
+```
