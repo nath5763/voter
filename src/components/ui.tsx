@@ -1,6 +1,6 @@
 import type { PropsWithChildren, ReactNode } from 'react';
 import { router } from 'expo-router';
-import { Linking, Pressable, ScrollView, StyleSheet, Text, View, type StyleProp, type ViewStyle } from 'react-native';
+import { KeyboardAvoidingView, Linking, Platform, Pressable, ScrollView, StyleSheet, Text, View, type StyleProp, type ViewStyle } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { maxContentWidth, palette, radius, spacing } from '@/constants/theme';
@@ -10,9 +10,16 @@ import type { DataStatus, SourceCitation } from '@/types/domain';
 export function Screen({ children, style }: PropsWithChildren<{ style?: StyleProp<ViewStyle> }>) {
   return (
     <SafeAreaView style={styles.safeArea} edges={['top']}>
-      <ScrollView contentContainerStyle={[styles.screen, style]} keyboardShouldPersistTaps="handled">
-        {children}
-      </ScrollView>
+      <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : Platform.OS === 'android' ? 'height' : undefined} style={styles.keyboardAvoider}>
+        <ScrollView
+          automaticallyAdjustKeyboardInsets
+          contentContainerStyle={[styles.screen, style]}
+          keyboardDismissMode={Platform.OS === 'ios' ? 'interactive' : 'on-drag'}
+          keyboardShouldPersistTaps="handled"
+        >
+          {children}
+        </ScrollView>
+      </KeyboardAvoidingView>
     </SafeAreaView>
   );
 }
@@ -115,6 +122,7 @@ export function Divider() {
 
 const styles = StyleSheet.create({
   safeArea: { flex: 1, backgroundColor: palette.canvas },
+  keyboardAvoider: { flex: 1 },
   screen: { width: '100%', maxWidth: maxContentWidth, alignSelf: 'center', paddingHorizontal: spacing.md, paddingTop: spacing.md, paddingBottom: 112, gap: spacing.md },
   header: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start', gap: spacing.md, paddingVertical: spacing.sm },
   headerCopy: { flex: 1, gap: spacing.sm },

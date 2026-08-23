@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 
 import { Body, Card, Label, LinkButton, PageHeader, PrimaryButton, Screen } from '@/components/ui';
+import { StateSelector } from '@/components/state-selector';
 import { palette, radius, spacing } from '@/constants/theme';
 import { useApp } from '@/context/app-context';
 import { resolveJurisdiction } from '@/services/jurisdiction-resolver';
@@ -49,10 +50,8 @@ export default function ChangeAddressScreen() {
         <Field label={t('street')} value={street} onChangeText={setStreet} />
         <Field label={t('unit')} value={unit} onChangeText={setUnit} />
         <Field label={t('city')} value={city} onChangeText={setCity} />
-        <View style={styles.row}>
-          <Field label={t('state')} value={stateCode} onChangeText={(value) => setStateCode(value.toUpperCase().slice(0, 2))} />
-          <Field label={t('zip')} value={zipCode} onChangeText={setZipCode} />
-        </View>
+        <StateSelector value={stateCode} onChange={setStateCode} />
+        <Field keyboardType="number-pad" label={t('zip')} value={zipCode} onChangeText={setZipCode} />
         <Body muted>{t('privacyLocal')}</Body>
       </Card>
       {preview ? (
@@ -69,12 +68,12 @@ export default function ChangeAddressScreen() {
   );
 }
 
-function Field({ label, value, onChangeText }: { label: string; value: string; onChangeText: (value: string) => void }) {
-  return <View style={styles.field}><Label>{label}</Label><TextInput accessibilityLabel={label} style={styles.input} value={value} onChangeText={onChangeText} /></View>;
+function Field({ label, value, onChangeText, keyboardType = 'default' }: { label: string; value: string; onChangeText: (value: string) => void; keyboardType?: 'default' | 'number-pad' }) {
+  return <View style={styles.field}><Label>{label}</Label><TextInput accessibilityLabel={label} keyboardType={keyboardType} style={styles.input} value={value} onChangeText={onChangeText} /></View>;
 }
 
 const styles = StyleSheet.create({
-  field: { flex: 1, gap: spacing.sm }, row: { flexDirection: 'row', gap: spacing.md },
+  field: { flex: 1, gap: spacing.sm },
   input: { minHeight: 50, borderWidth: 1, borderColor: palette.line, backgroundColor: palette.surface, borderRadius: radius.md, paddingHorizontal: spacing.md, color: palette.ink, fontSize: 16 },
   error: { padding: spacing.md, borderRadius: radius.md, backgroundColor: palette.dangerSoft },
   errorText: { color: palette.danger, fontSize: 15, lineHeight: 21, fontWeight: '700' },

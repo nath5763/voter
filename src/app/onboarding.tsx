@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Platform, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 
 import { Body, Card, Label, PageHeader, PrimaryButton, Screen, SecondaryButton } from '@/components/ui';
+import { StateSelector } from '@/components/state-selector';
 import { palette, radius, spacing } from '@/constants/theme';
 import { useApp } from '@/context/app-context';
 import { createSeedDataset } from '@/data/seed';
@@ -101,12 +102,10 @@ export default function OnboardingScreen() {
         <PageHeader eyebrow="United States" title={t('addressTitle')} body={t('addressHelp')} />
         {error ? <Notice text={error} /> : null}
         <Field label={t('street')} value={street} onChangeText={setStreet} autoComplete="street-address" />
-        <Field label={t('unit')} value={unit} onChangeText={setUnit} />
-        <Field label={t('city')} value={city} onChangeText={setCity} autoComplete="address-line2" />
-        <View style={styles.fieldRow}>
-          <Field label={t('state')} value={stateCode} onChangeText={(value) => setStateCode(value.toUpperCase().slice(0, 2))} autoCapitalize="characters" />
-          <Field label={t('zip')} value={zipCode} onChangeText={setZipCode} keyboardType="number-pad" autoComplete="postal-code" />
-        </View>
+        <Field label={t('unit')} value={unit} onChangeText={setUnit} autoComplete="address-line2" />
+        <Field label={t('city')} value={city} onChangeText={setCity} />
+        <StateSelector value={stateCode} onChange={setStateCode} />
+        <Field label={t('zip')} value={zipCode} onChangeText={setZipCode} keyboardType="number-pad" autoComplete="postal-code" />
         {busy ? <Body muted>{t('addressResolving')}</Body> : null}
         <PrimaryButton disabled={busy} label={t('findDistricts')} onPress={resolveAddress} />
         <SecondaryButton label={t('back')} onPress={() => setStep(2)} />
@@ -198,7 +197,7 @@ const styles = StyleSheet.create({
   choiceText: { flex: 1, color: palette.ink, fontSize: 16, lineHeight: 23, fontWeight: '700' },
   radio: { width: 22, height: 22, borderRadius: 11, borderWidth: 2, borderColor: palette.inkMuted, alignItems: 'center', justifyContent: 'center' },
   radioSelected: { borderColor: palette.brand }, radioDot: { width: 10, height: 10, borderRadius: 5, backgroundColor: palette.brand },
-  field: { flex: 1, gap: spacing.sm }, fieldRow: { flexDirection: 'row', gap: spacing.md },
+  field: { flex: 1, gap: spacing.sm },
   input: { minHeight: 50, borderWidth: 1, borderColor: palette.line, backgroundColor: palette.surface, borderRadius: radius.md, paddingHorizontal: spacing.md, color: palette.ink, fontSize: 16 },
   notice: { padding: spacing.md, borderRadius: radius.md, backgroundColor: palette.warningSoft, borderWidth: 1, borderColor: '#E3A49C' },
   noticeText: { color: palette.warning, fontSize: 15, lineHeight: 21, fontWeight: '700' },
