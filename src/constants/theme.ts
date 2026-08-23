@@ -1,5 +1,3 @@
-import '@/global.css';
-
 export const palette = {
   canvas: '#F5F1E8',
   surface: '#FFFEFA',

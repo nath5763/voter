@@ -1,29 +1,38 @@
 import { router } from 'expo-router';
-import { StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 
-import { Body, Card, Label, LinkButton, PageHeader, PrototypeBanner, Screen } from '@/components/ui';
+import { Body, Card, Label, LinkButton, PageHeader, Screen, SecondaryButton, StatusPill } from '@/components/ui';
 import { palette, radius, spacing } from '@/constants/theme';
 import { useApp } from '@/context/app-context';
 
 export default function NotificationsScreen() {
-  const { locale, t } = useApp();
+  const { locale, markAllRead, notifications, openNotification, t } = useApp();
+
+  const open = async (id: string, route?: string) => {
+    await openNotification(id);
+    if (route?.startsWith('/')) router.push(route as never);
+  };
+
   return (
     <Screen>
       <LinkButton label={t('back')} onPress={() => router.back()} />
       <PageHeader title={t('notifications')} body={t('emptyNotificationsBody')} />
-      <PrototypeBanner />
-      <Card>
-        <View style={styles.row}><View style={styles.unread} /><Label>{formatDate(locale)}</Label></View>
-        <Text style={styles.title}>{t('sampleUpdate')}</Text>
-        <Body>{t('sampleUpdateBody')}</Body>
-        <LinkButton label={t('viewElection')} onPress={() => router.push('/elections/tx-general-2026')} />
-      </Card>
+      {notifications.length > 0 ? <SecondaryButton label={t('markAllRead')} onPress={markAllRead} /> : null}
+      {notifications.length === 0 ? <Card><Text style={styles.title}>{t('emptyNotifications')}</Text><Body>{t('emptyNotificationsBody')}</Body></Card> : notifications.map((item) => (
+        <Pressable key={item.id} accessibilityRole="button" accessibilityLabel={item.title} onPress={() => open(item.id, item.route)}>
+          <Card>
+            <View style={styles.row}>{!item.readAt ? <View style={styles.unread} /> : null}<Label>{formatDate(item.createdAt, locale)}</Label><StatusPill status={item.status} /></View>
+            <Text style={styles.title}>{item.title}</Text>
+            <Body>{item.message}</Body>
+          </Card>
+        </Pressable>
+      ))}
     </Screen>
   );
 }
 
-function formatDate(locale: string) {
-  return new Intl.DateTimeFormat(locale, { dateStyle: 'medium', timeStyle: 'short' }).format(new Date('2026-08-20T09:00:00-05:00'));
+function formatDate(value: string, locale: string) {
+  return new Intl.DateTimeFormat(locale, { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(value));
 }
 
 const styles = StyleSheet.create({

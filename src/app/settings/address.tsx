@@ -2,50 +2,69 @@ import { router } from 'expo-router';
 import { useState } from 'react';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 
-import { Body, Card, Label, LinkButton, PageHeader, PrimaryButton, PrototypeBanner, Screen } from '@/components/ui';
+import { Body, Card, Label, LinkButton, PageHeader, PrimaryButton, Screen } from '@/components/ui';
 import { palette, radius, spacing } from '@/constants/theme';
 import { useApp } from '@/context/app-context';
+import { resolveJurisdiction } from '@/services/jurisdiction-resolver';
+import type { JurisdictionProfile } from '@/types/domain';
 
 export default function ChangeAddressScreen() {
   const { profile, updateProfile, t } = useApp();
-  const current = profile?.jurisdiction;
-  const [street, setStreet] = useState(current?.street ?? '');
-  const [city, setCity] = useState(current?.city ?? '');
-  const [zipCode, setZipCode] = useState(current?.zipCode ?? '');
+  const address = profile?.jurisdiction.fullAddress;
+  const [street, setStreet] = useState(address?.street ?? '');
+  const [unit, setUnit] = useState(address?.unit ?? '');
+  const [city, setCity] = useState(address?.city ?? '');
+  const [stateCode, setStateCode] = useState(address?.stateCode ?? profile?.jurisdiction.stateCode ?? '');
+  const [zipCode, setZipCode] = useState(address?.zipCode ?? '');
+  const [preview, setPreview] = useState<JurisdictionProfile | null>(null);
   const [error, setError] = useState('');
+  const [busy, setBusy] = useState(false);
 
-  const save = async () => {
-    if (!street.trim() || !city.trim() || !/^\d{5}$/.test(zipCode)) {
-      setError(t('addressError'));
+  const resolve = async () => {
+    setBusy(true);
+    setError('');
+    const result = await resolveJurisdiction({ street, unit, city, stateCode, zipCode });
+    setBusy(false);
+    if (result.status !== 'success') {
+      setError(result.message);
+      setPreview(null);
       return;
     }
-    if (!current) return;
-    const isGulfFixture = zipCode.startsWith('77');
-    await updateProfile({ jurisdiction: {
-      ...current, street: street.trim(), city: city.trim(), zipCode,
-      displayAddress: `${street.trim()}, ${city.trim()}, TX ${zipCode}`,
-      county: isGulfFixture ? 'Sample Harris County' : 'Sample Travis County',
-      congressionalDistrict: isGulfFixture ? 'Sample U.S. House District 8' : 'Sample U.S. House District 7',
-      stateSenateDistrict: isGulfFixture ? 'Sample Texas Senate District 15' : 'Sample Texas Senate District 14',
-      stateHouseDistrict: isGulfFixture ? 'Sample Texas House District 137' : 'Sample Texas House District 134',
-      resolvedAt: new Date().toISOString(),
-    } });
+    setPreview(result.jurisdiction);
+  };
+
+  const save = async () => {
+    if (!preview) return;
+    setBusy(true);
+    await updateProfile({ jurisdiction: preview });
     router.back();
   };
 
   return (
     <Screen>
       <LinkButton label={t('back')} onPress={() => router.back()} />
-      <PageHeader eyebrow={t('sampleJurisdiction')} title={t('changeAddress')} body={t('reviewHelp')} />
-      <PrototypeBanner />
+      <PageHeader eyebrow={profile?.jurisdiction.maskedAddress} title={t('changeAddress')} body={t('reviewHelp')} />
       {error ? <View accessibilityRole="alert" style={styles.error}><Text style={styles.errorText}>{error}</Text></View> : null}
       <Card>
         <Field label={t('street')} value={street} onChangeText={setStreet} />
+        <Field label={t('unit')} value={unit} onChangeText={setUnit} />
         <Field label={t('city')} value={city} onChangeText={setCity} />
-        <Field label={t('zip')} value={zipCode} onChangeText={setZipCode} />
+        <View style={styles.row}>
+          <Field label={t('state')} value={stateCode} onChangeText={(value) => setStateCode(value.toUpperCase().slice(0, 2))} />
+          <Field label={t('zip')} value={zipCode} onChangeText={setZipCode} />
+        </View>
         <Body muted>{t('privacyLocal')}</Body>
       </Card>
-      <PrimaryButton label={t('save')} onPress={save} />
+      {preview ? (
+        <Card>
+          <Label>{t('reviewTitle')}</Label>
+          <Text style={styles.preview}>{preview.displayAddress ?? preview.maskedAddress}</Text>
+          <Body>{preview.congressionalDistrict}</Body>
+          {preview.upperLegislativeDistrict ? <Body>{preview.upperLegislativeDistrict}</Body> : null}
+          {preview.lowerLegislativeDistrict ? <Body>{preview.lowerLegislativeDistrict}</Body> : null}
+          <PrimaryButton disabled={busy} label={t('save')} onPress={save} />
+        </Card>
+      ) : <PrimaryButton disabled={busy} label={busy ? t('addressResolving') : t('findDistricts')} onPress={resolve} />}
     </Screen>
   );
 }
@@ -55,8 +74,9 @@ function Field({ label, value, onChangeText }: { label: string; value: string; o
 }
 
 const styles = StyleSheet.create({
-  field: { gap: spacing.sm },
+  field: { flex: 1, gap: spacing.sm }, row: { flexDirection: 'row', gap: spacing.md },
   input: { minHeight: 50, borderWidth: 1, borderColor: palette.line, backgroundColor: palette.surface, borderRadius: radius.md, paddingHorizontal: spacing.md, color: palette.ink, fontSize: 16 },
   error: { padding: spacing.md, borderRadius: radius.md, backgroundColor: palette.dangerSoft },
   errorText: { color: palette.danger, fontSize: 15, lineHeight: 21, fontWeight: '700' },
+  preview: { color: palette.ink, fontSize: 18, lineHeight: 25, fontWeight: '800' },
 });

@@ -4,21 +4,22 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Body, Card, Label, LinkButton, PageHeader, PrototypeBanner, Screen, StatusPill } from '@/components/ui';
 import { palette, spacing } from '@/constants/theme';
 import { useApp } from '@/context/app-context';
-import { elections } from '@/data/fixtures';
 
 export default function ElectionsScreen() {
-  const { locale, profile, t } = useApp();
+  const { dataset, locale, profile, t } = useApp();
+  const today = new Date().toISOString().slice(0, 10);
+  const elections = dataset?.elections.filter((item) => item.date >= today).sort((a, b) => a.date.localeCompare(b.date)) ?? [];
   return (
     <Screen>
       <PageHeader eyebrow={profile?.jurisdiction.congressionalDistrict} title={t('elections')} body={t('basedOnAddress')} />
       <PrototypeBanner />
       <View style={styles.filter}><Text style={styles.filterText}>{t('upcoming')} · {elections.length}</Text></View>
-      {elections.map((election) => (
+      {elections.length === 0 ? <Card><Body>{t('noElections')}</Body></Card> : elections.map((election) => (
         <Card key={election.id}>
           <View style={styles.row}><Label>{election.type}</Label><StatusPill status={election.status} /></View>
           <Text style={styles.title}>{election.name}</Text>
-          <Text style={styles.date}>{formatDate(election.date, locale)}</Text>
-          <Body muted>{election.contests.length} {t('contests').toLowerCase()}</Body>
+          <Text style={styles.date}>{formatDate(election.date, locale, election.timeZone)}</Text>
+          <Body muted>{election.jurisdiction} · {election.contests.length} {t('contests').toLowerCase()}</Body>
           <LinkButton label={t('viewElection')} onPress={() => router.push({ pathname: '/elections/[id]', params: { id: election.id } })} />
         </Card>
       ))}
@@ -26,8 +27,8 @@ export default function ElectionsScreen() {
   );
 }
 
-function formatDate(value: string, locale: string) {
-  return new Intl.DateTimeFormat(locale, { dateStyle: 'full', timeZone: 'America/Chicago' }).format(new Date(`${value}T12:00:00-06:00`));
+function formatDate(value: string, locale: string, timeZone: string) {
+  return new Intl.DateTimeFormat(locale, { dateStyle: 'full', timeZone }).format(new Date(`${value}T12:00:00Z`));
 }
 
 const styles = StyleSheet.create({

@@ -1,0 +1,311 @@
+{
+  "datasetVersion": "2026.08.23-seed.1",
+  "jurisdictions": [
+    {
+      "stateCode": "AL",
+      "stateName": "Alabama",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "AK",
+      "stateName": "Alaska",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "AZ",
+      "stateName": "Arizona",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "AR",
+      "stateName": "Arkansas",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "CA",
+      "stateName": "California",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "CO",
+      "stateName": "Colorado",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "CT",
+      "stateName": "Connecticut",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "DE",
+      "stateName": "Delaware",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "DC",
+      "stateName": "District of Columbia",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "FL",
+      "stateName": "Florida",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "GA",
+      "stateName": "Georgia",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "HI",
+      "stateName": "Hawaii",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "ID",
+      "stateName": "Idaho",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "IL",
+      "stateName": "Illinois",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "IN",
+      "stateName": "Indiana",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "IA",
+      "stateName": "Iowa",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "KS",
+      "stateName": "Kansas",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "KY",
+      "stateName": "Kentucky",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "LA",
+      "stateName": "Louisiana",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "ME",
+      "stateName": "Maine",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "MD",
+      "stateName": "Maryland",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "MA",
+      "stateName": "Massachusetts",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "MI",
+      "stateName": "Michigan",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "MN",
+      "stateName": "Minnesota",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "MS",
+      "stateName": "Mississippi",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "MO",
+      "stateName": "Missouri",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "MT",
+      "stateName": "Montana",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "NE",
+      "stateName": "Nebraska",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "NV",
+      "stateName": "Nevada",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "NH",
+      "stateName": "New Hampshire",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "NJ",
+      "stateName": "New Jersey",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "NM",
+      "stateName": "New Mexico",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "NY",
+      "stateName": "New York",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "NC",
+      "stateName": "North Carolina",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "ND",
+      "stateName": "North Dakota",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "OH",
+      "stateName": "Ohio",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "OK",
+      "stateName": "Oklahoma",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "OR",
+      "stateName": "Oregon",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "PA",
+      "stateName": "Pennsylvania",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "RI",
+      "stateName": "Rhode Island",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "SC",
+      "stateName": "South Carolina",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "SD",
+      "stateName": "South Dakota",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "TN",
+      "stateName": "Tennessee",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "TX",
+      "stateName": "Texas",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "UT",
+      "stateName": "Utah",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "VT",
+      "stateName": "Vermont",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "VA",
+      "stateName": "Virginia",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "WA",
+      "stateName": "Washington",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "WV",
+      "stateName": "West Virginia",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "WI",
+      "stateName": "Wisconsin",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    },
+    {
+      "stateCode": "WY",
+      "stateName": "Wyoming",
+      "status": "INCOMPLETE",
+      "requiredAdapter": "Official state/DC election authority"
+    }
+  ]
+}

@@ -1,37 +1,38 @@
 import { router, useLocalSearchParams } from 'expo-router';
-import { StyleSheet, Text } from 'react-native';
+import { Linking, StyleSheet, Text } from 'react-native';
 
-import { Body, Card, Label, LinkButton, PageHeader, PrototypeBanner, Screen, SourceLine } from '@/components/ui';
+import { Body, Card, Label, LinkButton, PageHeader, Screen, SourceLine } from '@/components/ui';
 import { palette } from '@/constants/theme';
 import { useApp } from '@/context/app-context';
-import { getCandidate, getSource } from '@/data/fixtures';
 
 export default function CandidateDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
-  const { t } = useApp();
-  const result = getCandidate(id);
-  if (!result) return <Screen><LinkButton label={t('back')} onPress={() => router.back()} /><PageHeader title={t('unavailable')} /></Screen>;
-  const { candidate, contest } = result;
+  const { dataset, t } = useApp();
+  const found = dataset?.elections.flatMap((election) => election.contests.map((contest) => ({ election, contest })))
+    .map(({ election, contest }) => ({ election, contest, candidate: contest.candidates.find((item) => item.id === id) }))
+    .find((item) => item.candidate);
+  if (!found?.candidate) return <Screen><LinkButton label={t('back')} onPress={() => router.back()} /><PageHeader title={t('unavailable')} /></Screen>;
+  const { candidate, contest } = found;
+  const getSource = (sourceId: string) => dataset?.sources.find((source) => source.id === sourceId);
 
   return (
     <Screen>
       <LinkButton label={t('back')} onPress={() => router.back()} />
-      <PageHeader eyebrow={t('candidateDetails')} title={candidate.name} body={`${contest.office} · ${contest.district}`} />
-      <PrototypeBanner />
+      <PageHeader eyebrow={t('candidateDetails')} title={candidate.name} body={`${contest.office}${contest.district ? ` · ${contest.district}` : ''}`} />
       <Card>
         <Label>{t('party')}</Label>
-        <Text style={styles.value}>{candidate.party}</Text>
+        <Text style={styles.value}>{candidate.party ?? t('notProvided')}</Text>
         <Label>{t('incumbent')}</Label>
-        <Text style={styles.value}>{candidate.incumbent ? t('incumbent') : t('notIncumbent')}</Text>
+        <Text style={styles.value}>{candidate.incumbent === true ? t('incumbent') : t('notProvided')}</Text>
       </Card>
       <Card>
         <Label>{t('campaignSite')}</Label>
         <Body>{t('campaignWarning')}</Body>
-        <Body muted>Not provided by the synthetic development fixture.</Body>
+        {candidate.campaignUrl ? <LinkButton label={t('campaignSite')} onPress={() => { if (candidate.campaignUrl?.startsWith('https://')) void Linking.openURL(candidate.campaignUrl); }} /> : <Body muted>{t('notProvided')}</Body>}
       </Card>
       <Card>
         <Label>{t('sources')}</Label>
-        <SourceLine source={getSource(candidate.sourceId)} />
+        {candidate.sourceIds.map((sourceId) => <SourceLine key={sourceId} source={getSource(sourceId)} />)}
       </Card>
     </Screen>
   );

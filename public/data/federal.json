@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "datasetVersion": "2026.08.23-seed.1",
+  "generatedAt": "2026-08-23T00:00:00Z",
+  "status": "INCOMPLETE",
+  "elections": [
+    {
+      "id": "federal-general-2026",
+      "name": "2026 Federal General Election",
+      "date": "2026-11-03",
+      "status": "VERIFIED"
+    }
+  ],
+  "sources": [
+    {
+      "providerName": "U.S. Election Assistance Commission",
+      "url": "https://www.eac.gov/voters/register-and-vote-in-your-state"
+    }
+  ]
+}

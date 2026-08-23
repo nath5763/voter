@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "datasetVersion": "2026.08.23-seed.1",
+  "generatedAt": "2026-08-23T00:00:00Z",
+  "stateCode": "GA",
+  "stateName": "Georgia",
+  "status": "INCOMPLETE",
+  "sources": [
+    {
+      "id": "eac-national",
+      "providerName": "U.S. Election Assistance Commission",
+      "url": "https://www.eac.gov/voters/register-and-vote-in-your-state",
+      "retrievedAt": "2026-08-23T00:00:00Z",
+      "language": "en",
+      "authorityLevel": "FEDERAL",
+      "official": true,
+      "status": "INCOMPLETE"
+    }
+  ],
+  "elections": [
+    {
+      "id": "ga-federal-general-2026",
+      "stateCode": "GA",
+      "name": "Georgia Federal General Election",
+      "type": "GENERAL",
+      "date": "2026-11-03",
+      "timeZone": "America/New_York",
+      "jurisdiction": "Georgia",
+      "status": "INCOMPLETE",
+      "completeness": "INCOMPLETE",
+      "sourceIds": [
+        "eac-national"
+      ],
+      "deadlines": [
+        {
+          "id": "ga-federal-general-2026-day",
+          "type": "ELECTION_DAY",
+          "date": "2026-11-03",
+          "qualifier": "DATE_ONLY",
+          "status": "VERIFIED",
+          "sourceIds": [
+            "eac-national"
+          ]
+        }
+      ],
+      "requirements": [],
+      "contests": []
+    }
+  ]
+}

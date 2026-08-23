@@ -1,0 +1,319 @@
+{
+  "schemaVersion": 1,
+  "datasetVersion": "2026.08.23-seed.1",
+  "generatedAt": "2026-08-23T00:00:00Z",
+  "federal": {
+    "version": "2026.08.23-seed.1",
+    "url": "/data/federal.json",
+    "sha256": "854fb2cdf3a849a19971d3836853ae151525537c36c258bbd56590c2a773c4f7",
+    "status": "INCOMPLETE"
+  },
+  "jurisdictions": {
+    "AL": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/al.json",
+      "sha256": "4b89ff9ed6276249e85110bb8232262b55c088bec576625250a97cb48831bea7",
+      "status": "INCOMPLETE"
+    },
+    "AK": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/ak.json",
+      "sha256": "f2cc799c93e6b2f253368aa970a88da331df588a2d64f6c3aa7908504211b47b",
+      "status": "INCOMPLETE"
+    },
+    "AZ": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/az.json",
+      "sha256": "339332137eb06c53e019147fe06d3c37b5e5e13b1a42673921b0e3f2ed7d1c3b",
+      "status": "INCOMPLETE"
+    },
+    "AR": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/ar.json",
+      "sha256": "871a1705c3a81b54fd787736a9ffe346f61d2e80e40593cc545d6b46d7cf0acf",
+      "status": "INCOMPLETE"
+    },
+    "CA": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/ca.json",
+      "sha256": "f5db93e3b7bdc4de26a494208851dd44ed840a513ce03c431818f3b2b57fe047",
+      "status": "INCOMPLETE"
+    },
+    "CO": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/co.json",
+      "sha256": "7f5fef2bd0ebb7fb5453896cdbb8a3cedfc26406ffc284374a9ab0dc207baa4c",
+      "status": "INCOMPLETE"
+    },
+    "CT": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/ct.json",
+      "sha256": "9f49ec8c10ef63a4cf61ae9e8087f5f2fa9c33fd7ecbf2a06a0314a2dfcb141d",
+      "status": "INCOMPLETE"
+    },
+    "DE": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/de.json",
+      "sha256": "2a1eb99bd85cfd63fcc47071b3f2ce458a1dac7a147269ec2d351cbc8b4289fa",
+      "status": "INCOMPLETE"
+    },
+    "DC": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/dc.json",
+      "sha256": "ad204538f563decf140f70a2893732fd0faa070877ae9036dd1c62c67c7d8cda",
+      "status": "INCOMPLETE"
+    },
+    "FL": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/fl.json",
+      "sha256": "8b0d7d906b390f28ba1a4e7fdd5b88d472da2d132cf57f075c3d61e234bba066",
+      "status": "INCOMPLETE"
+    },
+    "GA": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/ga.json",
+      "sha256": "1a1f6df2abf7bf9a4aa31dc24d6b8e9ddf45fef26c99ed4b9cbf5a9deb4b08b2",
+      "status": "INCOMPLETE"
+    },
+    "HI": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/hi.json",
+      "sha256": "9b5d2ce2091dcef290a006deb6619c58f5615097895860ee10c939817c02ce92",
+      "status": "INCOMPLETE"
+    },
+    "ID": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/id.json",
+      "sha256": "1e3773dacd9b2a75e9987d8f6fb128c9fa46d90a528014f6bdde8139ebbb815b",
+      "status": "INCOMPLETE"
+    },
+    "IL": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/il.json",
+      "sha256": "086361bde12217f5c2adb5727277c5dec5baac73c12f1eaee23b16ec17e7da3b",
+      "status": "INCOMPLETE"
+    },
+    "IN": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/in.json",
+      "sha256": "1ca34b78e086298aea083ee3ae60e88c9b4f77ad331453848165261712489782",
+      "status": "INCOMPLETE"
+    },
+    "IA": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/ia.json",
+      "sha256": "c61417afb4b53d5e54c67dbe9a4d9340b06bc0d51a472aa6f53c639540d5ccda",
+      "status": "INCOMPLETE"
+    },
+    "KS": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/ks.json",
+      "sha256": "394525d0619ff2144d13dce34c73bda86370a8938ceede3a1295480b4074f1e0",
+      "status": "INCOMPLETE"
+    },
+    "KY": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/ky.json",
+      "sha256": "c553edf016204cc52b7b2b9dacebc9e7cadaf764c09a6f9e4754cd53cc49f920",
+      "status": "INCOMPLETE"
+    },
+    "LA": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/la.json",
+      "sha256": "3333f4a7ffbd3dd7ff7db5de4fe8382e1e6c8977b682c4bf69ebf6ee7bd7a8e5",
+      "status": "INCOMPLETE"
+    },
+    "ME": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/me.json",
+      "sha256": "09f22e9c66bdd56ba080905b51bcc8f47044e4f634da9f983c73a2f97b98468d",
+      "status": "INCOMPLETE"
+    },
+    "MD": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/md.json",
+      "sha256": "10459ca4fa77136bd2018d076318b076a539977bc071ef278d01a83419195a1d",
+      "status": "INCOMPLETE"
+    },
+    "MA": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/ma.json",
+      "sha256": "47ccd9955fe2b68f5d02c3339a094dcfa838c748e1b3e160187a58baac0eff40",
+      "status": "INCOMPLETE"
+    },
+    "MI": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/mi.json",
+      "sha256": "e2de19ba5c4ba232d81023cca6bc8acf2297304544990ace7aee4ea40677465a",
+      "status": "INCOMPLETE"
+    },
+    "MN": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/mn.json",
+      "sha256": "5f935109dc2553d609b5d0722bab5cb5301f0430e45d54837f5a7ca30a0595ce",
+      "status": "INCOMPLETE"
+    },
+    "MS": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/ms.json",
+      "sha256": "4377f36059230966427ff0ecf7b575b3bad2cd686542469b641fc82839b1e8e6",
+      "status": "INCOMPLETE"
+    },
+    "MO": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/mo.json",
+      "sha256": "961e07d92833a9d564603440e20755bc2a9a00bc32f1d61eca892e0dbde54651",
+      "status": "INCOMPLETE"
+    },
+    "MT": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/mt.json",
+      "sha256": "50c0e5b0f16a70d63f693db47a93108d51902eb626a30f3a03f88490c2a7cbeb",
+      "status": "INCOMPLETE"
+    },
+    "NE": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/ne.json",
+      "sha256": "816f552f8b70e261efa136ef590f704a206e8bc8baab4b86b8af97ba3b0d122f",
+      "status": "INCOMPLETE"
+    },
+    "NV": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/nv.json",
+      "sha256": "6a5c43dd1ddbab93403310ccf9ac2ddc45ca243c0053eb6716d5810374ba7ce4",
+      "status": "INCOMPLETE"
+    },
+    "NH": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/nh.json",
+      "sha256": "7579a20deefde0f271b311b07b32e3a86969622adead203f427ce5a19a0ef51d",
+      "status": "INCOMPLETE"
+    },
+    "NJ": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/nj.json",
+      "sha256": "fd6e19faacf19d18056625c46fd20f66eea10efafd569fb797f873bd3956bb1e",
+      "status": "INCOMPLETE"
+    },
+    "NM": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/nm.json",
+      "sha256": "727d6a88e8bbae4c4cf9d09e2c089a11e6a3c304a2ab01d0ea21a1cbad65a025",
+      "status": "INCOMPLETE"
+    },
+    "NY": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/ny.json",
+      "sha256": "1c9044883781bf54ded03b08a58877a9348f75d0628791ee267069dbd8ede33e",
+      "status": "INCOMPLETE"
+    },
+    "NC": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/nc.json",
+      "sha256": "f3bdf4472c9812be30c453607c99e73d917e63347783b1c5cc3c9e7f2af1a1e9",
+      "status": "INCOMPLETE"
+    },
+    "ND": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/nd.json",
+      "sha256": "cf3b2131c5d9c4e2842f3e7d55ab6ec13e18ebf40f35b5e7a3edd79eeafc1efa",
+      "status": "INCOMPLETE"
+    },
+    "OH": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/oh.json",
+      "sha256": "b5bf8da03a1a7f714d1ce2a86e1a65defee825ae09dd33be87ff4932d31d18cc",
+      "status": "INCOMPLETE"
+    },
+    "OK": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/ok.json",
+      "sha256": "6afdab7a6a2a3974a624687bd456ef4c898af82e606d3dc410c3466de6bb2a11",
+      "status": "INCOMPLETE"
+    },
+    "OR": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/or.json",
+      "sha256": "1bc1b2a8f8f736b8e75903c8401955a8ddc720806ed527204a9282aeb70c30c5",
+      "status": "INCOMPLETE"
+    },
+    "PA": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/pa.json",
+      "sha256": "68a2140956e8fca54d0c9403474f22b972c5b1769d79c082ede353fbe7cafc60",
+      "status": "INCOMPLETE"
+    },
+    "RI": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/ri.json",
+      "sha256": "213582cff8df623b5f3b9f4b9c3e21d1771270c4edb5267db2595e90105d70ae",
+      "status": "INCOMPLETE"
+    },
+    "SC": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/sc.json",
+      "sha256": "59bb4520ba05d1edb8e2ce5943cd6a72328de7327bae584df4bd8a2323fa0a0d",
+      "status": "INCOMPLETE"
+    },
+    "SD": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/sd.json",
+      "sha256": "d7133a506006fe2c764d2198f8e94b261a1de005d0c07ce4b52e56dbc0c71588",
+      "status": "INCOMPLETE"
+    },
+    "TN": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/tn.json",
+      "sha256": "5dba7a81f01906a3a8b978673a5d7b762ad1d00b43c65fbf995295f15450bbf0",
+      "status": "INCOMPLETE"
+    },
+    "TX": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/tx.json",
+      "sha256": "9f7d4359d40d026c9f06bf4529e9501a0edee8f3047b69102a4a958970adf756",
+      "status": "INCOMPLETE"
+    },
+    "UT": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/ut.json",
+      "sha256": "95ef1b46517ded894559ecefabadf061e86747647f6fc65628eea34c50bfafd9",
+      "status": "INCOMPLETE"
+    },
+    "VT": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/vt.json",
+      "sha256": "784f883878923a0e18fa26a47ec94088a377d62b3be1c8e98f60e5008bc417a9",
+      "status": "INCOMPLETE"
+    },
+    "VA": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/va.json",
+      "sha256": "f80f2c8c012014fc3c00fdc5694a1cb4d6758c149d7cca565cbc09db8e58f17d",
+      "status": "INCOMPLETE"
+    },
+    "WA": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/wa.json",
+      "sha256": "b2bbaf3f45ae1af63e126b860dc5ed6582e12c24b7280848344e0368c9eb73db",
+      "status": "INCOMPLETE"
+    },
+    "WV": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/wv.json",
+      "sha256": "9d508ac173515c2e0d8f81c31d3e05c24d960ca7f943d1a89a82a3da8988b364",
+      "status": "INCOMPLETE"
+    },
+    "WI": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/wi.json",
+      "sha256": "cf6b4937769a34a6443ca2bbf1b07f14d3d80288f2ec7f2a445a89d09bc6892f",
+      "status": "INCOMPLETE"
+    },
+    "WY": {
+      "version": "2026.08.23-seed.1",
+      "url": "/data/states/wy.json",
+      "sha256": "dccafdad104f7b1bc0187c68095b6460be6de7abf75ab8f9840058e3fea8f3ee",
+      "status": "INCOMPLETE"
+    }
+  }
+}

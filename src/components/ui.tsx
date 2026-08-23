@@ -1,4 +1,5 @@
 import type { PropsWithChildren, ReactNode } from 'react';
+import { router } from 'expo-router';
 import { Linking, Pressable, ScrollView, StyleSheet, Text, View, type StyleProp, type ViewStyle } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -30,11 +31,13 @@ export function PageHeader({ eyebrow, title, body, action }: { eyebrow?: string;
 }
 
 export function PrototypeBanner() {
-  const { t } = useApp();
+  const { dataset, refreshError, refreshing, refreshData, t } = useApp();
+  if (dataset?.status === 'VERIFIED' && !refreshError) return null;
   return (
     <View accessibilityRole="alert" style={styles.prototypeBanner}>
-      <Text style={styles.prototypeTitle}>{t('prototype')}</Text>
-      <Text style={styles.prototypeText}>{t('prototypeDetail')}</Text>
+      <Text style={styles.prototypeTitle}>{t('dataNotice')}</Text>
+      <Text style={styles.prototypeText}>{refreshError ? t('refreshFailed') : t('incompleteData')}</Text>
+      <LinkButton label={refreshing ? t('refreshing') : t('refresh')} onPress={refreshData} />
     </View>
   );
 }
@@ -96,8 +99,11 @@ export function SourceLine({ source }: { source?: SourceCitation }) {
   return (
     <View style={styles.sourceLine}>
       <Text style={styles.sourceText}>{source.providerName}{verified ? ` · ${t('verified')} ${verified}` : ''}</Text>
+      <Pressable accessibilityRole="link" onPress={() => router.push({ pathname: '/sources/[id]', params: { id: source.id } })}>
+        <Text style={styles.sourceLink}>{t('sourceDetails')} →</Text>
+      </Pressable>
       <Pressable accessibilityRole="link" onPress={() => Linking.openURL(source.url)}>
-        <Text style={styles.sourceLink}>{t(source.official ? 'openSource' : 'officialSource')} ↗</Text>
+        <Text style={styles.sourceLink}>{t('openSource')} ↗</Text>
       </Pressable>
     </View>
   );
